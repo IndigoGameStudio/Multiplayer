@@ -11,7 +11,7 @@ Kada ste sve to uredno napravili potrebno je unutar programa odabrati "FILE > CL
 
 I odaberite naš repository i pritisnite clone.
 
-![Screenshot_4](https://user-images.githubusercontent.com/29728342/196375926-13d2c017-6d6c-4810-831a-faea2863ea93.png)
+![Screenshot_80](https://user-images.githubusercontent.com/29728342/199033411-de526bc7-e344-419e-88b6-fee78a274b38.png)
 
 
 Kad ste to napravili uspješno ste klonirali main branch na vašem računalu te vam se nalazi na lokaciji
