@@ -1,5 +1,15 @@
 # Don't play
 
+U verziju unity-a 2021.3.4f1 potrebno je dodati Android SDK i WebGL
+
+![Screenshot_85](https://user-images.githubusercontent.com/29728342/199067094-432c4eb0-edf7-47d3-9711-1d157016acf6.png)
+
+![Screenshot_86](https://user-images.githubusercontent.com/29728342/199067128-3990858e-9ae1-485c-a0c9-8e95e9b9be67.png)
+
+![Screenshot_87](https://user-images.githubusercontent.com/29728342/199067138-e56a3cae-1417-485a-925e-d99a7e23de4f.png)
+
+Kada se sve instalira treba namjestiti github repository:
+
 Potrebno je preuzeti github na svom računalu 
           https://desktop.github.com/
           
