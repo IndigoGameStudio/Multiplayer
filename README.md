@@ -16,7 +16,7 @@ I odaberite naš repository i pritisnite clone.
 
 Kad ste to napravili uspješno ste klonirali main branch na vašem računalu te vam se nalazi na lokaciji
 
-C:\Users\\[VAŠ PC]\Documents\GitHub\Don't play
+C:\Users\\[VAŠ PC]\Documents\GitHub\Multiplayer\Don't play
 
 
 
