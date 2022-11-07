@@ -5,22 +5,26 @@ using TMPro;
 
 public class test : MonoBehaviour
 {
+    private GameObject img;
     // Start is called before the first frame update
     void Start()
     {
         if(CheckDevice.instance.isMobile())
         {
-            GetComponent<TextMeshProUGUI>().text = "You are using Mobile";
+            if (img != null) { img.SetActive(true); }
+
+            if (TryGetComponent(out TextMeshProUGUI tekst))
+            {
+                tekst.text = "You are using Mobile";
+            }
         }
         else
         {
-            GetComponent<TextMeshProUGUI>().text = "You are using PC";
+            if (TryGetComponent(out TextMeshProUGUI tekst))
+            {
+                tekst.text = "You are using PC";
+            }
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
