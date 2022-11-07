@@ -13,7 +13,7 @@ public class DeviceManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
         if (Application.isEditor)
         {
             bool check = EditorUtility.DisplayDialog("Što želiš testirati?", "Odaberi koju tehnologiju želiš testirati.", "Platno", "Mobitel");
@@ -31,14 +31,14 @@ public class DeviceManager : MonoBehaviour
                 SetGameViewScale(1);
             }
         }
-#endif
+        #endif
     }
 
     public void LoadScene()
     {
         if (Application.isEditor)
             return;
-
+        
         if (CheckDevice.instance.isMobile())
         {
             foreach (var item in _goMobile) { item.SetActive(true); }
@@ -66,7 +66,7 @@ public class DeviceManager : MonoBehaviour
     }
 
 
-#if UNITY_EDITOR
+    #if UNITY_EDITOR
 
     bool device;
     float time = 2;

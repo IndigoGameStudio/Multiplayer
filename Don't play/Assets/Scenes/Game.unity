@@ -539,7 +539,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 104}
+  m_AnchoredPosition: {x: 0, y: 267}
   m_SizeDelta: {x: 0, y: 162.6308}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &281115061
@@ -1076,7 +1076,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 163}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &465357578
@@ -1099,9 +1099,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'IGRU JE MOGUCE IGRATI
-
-    SAMO NA MOBUTELU !'
+  m_text: "IGRU JE MOGUCE IGRATI \nSAMO NA MOBITELU !"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a211e0be7b4d4642bbd3bea47473385, type: 2}
   m_sharedMaterial: {fileID: 5891337371990780034, guid: 8a211e0be7b4d4642bbd3bea47473385, type: 2}
@@ -1682,7 +1680,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -142}
+  m_AnchoredPosition: {x: 0, y: 21}
   m_SizeDelta: {x: 12.666667, y: 21.333334}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1229728681
@@ -1779,8 +1777,8 @@ Camera:
   m_GameObject: {fileID: 1230523849}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.89411765, g: 0.8980392, b: 0.89411765, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3290,7 +3288,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 137.03275}
+  m_AnchoredPosition: {x: 0, y: 300.03275}
   m_SizeDelta: {x: 234.85602, y: 274.0655}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2140718192
