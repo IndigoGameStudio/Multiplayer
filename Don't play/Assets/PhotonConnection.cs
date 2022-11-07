@@ -8,18 +8,29 @@ public class PhotonConnection : MonoBehaviourPunCallbacks
 {
     public static PhotonConnection instance;
     public TextMeshProUGUI txt;
+    public GameObject _goGreska;
 
     void Start()
     {
+
+
         instance = this;
         PhotonNetwork.GameVersion = "0.1";
         PhotonNetwork.ConnectUsingSettings();
-        txt.text = "CONNECTING TO SERVER...";
+        if (CheckDevice.instance.isMobile()) { txt.text = "CONNECTING TO SERVER..."; }
     }
 
     public override void OnConnectedToMaster()
     {
-        txt.text = "YOU ARE CONNECTED !";
+        if (CheckDevice.instance.isMobile()) { txt.text = "YOU ARE CONNECTED !"; }
+        if (!CheckDevice.instance.isMobile() && GetOnlinePlayers() != 0)
+        {
+            _goGreska.SetActive(true);
+            PhotonNetwork.Disconnect();
+            return;
+        }
+        DeviceManager.instance.LoadScene();
+
     }
 
     public override void OnDisconnected(DisconnectCause cause)

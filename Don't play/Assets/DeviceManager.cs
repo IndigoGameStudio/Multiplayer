@@ -33,13 +33,11 @@ public class DeviceManager : MonoBehaviour
         }
 #endif
     }
-    private void Start()
-    {
-        
 
+    public void LoadScene()
+    {
         if (Application.isEditor)
             return;
-
 
         if (CheckDevice.instance.isMobile())
         {
@@ -51,8 +49,6 @@ public class DeviceManager : MonoBehaviour
             foreach (var item in _goPC) { item.SetActive(true); }
             foreach (var item in _goMobile) { item.SetActive(false); }
         }
-
-        
     }
 
     public void SetDevice(bool value)
