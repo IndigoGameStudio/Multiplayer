@@ -14,21 +14,17 @@ public class PhotonConnection : MonoBehaviourPunCallbacks
         instance = this;
         PhotonNetwork.GameVersion = "0.1";
         PhotonNetwork.ConnectUsingSettings();
-        if (CheckDevice.instance.isMobile())
-        {
-            txt.text = "Connecting to server...";
-        }
+        txt.text = "CONNECTING TO SERVER...";
     }
 
     public override void OnConnectedToMaster()
     {
-        txt.text = "Connected !";
-        txt.color = Color.green;
+        txt.text = "YOU ARE CONNECTED !";
     }
 
     public override void OnDisconnected(DisconnectCause cause)
     {
-        txt.text = string.Format("Disconnected from server. Reason: {0}", cause.ToString());
+        txt.text = string.Format("DISCONNECTED, REASON: {0}", cause.ToString().ToUpper());
     }
 
     public int GetOnlinePlayers()

@@ -1,16 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class PlayersOnline : MonoBehaviour
 {
 
     [SerializeField] float UpdateCheck;
-    Text _textCount;
+    TextMeshProUGUI _textCount;
     void Start()
     {
-        _textCount = gameObject.GetComponent<Text>();
+        _textCount = gameObject.GetComponent<TextMeshProUGUI>();
         StartCoroutine(CheckPlayers());
     }
 

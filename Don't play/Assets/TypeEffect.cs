@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class TypeEffect : MonoBehaviour
 {
-    Text textRef;
+    TextMeshProUGUI textRef;
     public string fullText;
     public float typingDelay;
     string currentText;
@@ -13,7 +13,7 @@ public class TypeEffect : MonoBehaviour
 
     void Start()
     {
-        textRef = GetComponent<Text>();
+        textRef = GetComponent<TextMeshProUGUI>();
         savedText = textRef.text;
         StartCoroutine(ShowText());
     }
