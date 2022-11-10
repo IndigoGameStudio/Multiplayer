@@ -19,7 +19,7 @@ public class Tail : MonoBehaviour
 
     private void Awake()
     {
-        if(PhotonNetwork.IsConnected)
+        if(PhotonNetwork.InRoom)
             line.colorGradient = _colorPlayerID[Int32.Parse(PhotonNetwork.LocalPlayer.UserId)];
     }
 

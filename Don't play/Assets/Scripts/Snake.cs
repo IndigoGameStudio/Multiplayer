@@ -7,11 +7,14 @@ public class Snake : MonoBehaviour
     [SerializeField] float rotationSpeed = 200f;
     [SerializeField] LineRenderer line;
     [SerializeField] SpriteRenderer sprite;
+    [SerializeField] SpriteRenderer Circle;
     float horizontal = 0f;
 
     private void Start()
     {
         sprite.color = line.startColor;
+        Circle.color = line.startColor;
+        Circle.color = new Color(Circle.color.r, Circle.color.g, Circle.color.b, 0.1f);
     }
 
     void Update() {
@@ -33,10 +36,9 @@ public class Snake : MonoBehaviour
             horizontal = 0;
         }
 
-        if(!CheckDevice.instance.isMobile())
-        {
+        #if UNITY_EDITOR
             horizontal = Input.GetAxisRaw("Horizontal");
-        }
+        #endif
     }
 
     private void FixedUpdate() {
