@@ -1,4 +1,4 @@
-# Don't play
+# Game Name: Don't play
 
 U verziju unity-a 2021.3.4f1 potrebno je dodati Android SDK i WebGL
 
