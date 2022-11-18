@@ -197,7 +197,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PLATNO NIJE SPOJENO
+  m_text: SCREEN IS NOT CONNECTED!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a211e0be7b4d4642bbd3bea47473385, type: 2}
   m_sharedMaterial: {fileID: 5891337371990780034, guid: 8a211e0be7b4d4642bbd3bea47473385, type: 2}
@@ -292,7 +292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &16164870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -670,7 +670,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GRESKA
+  m_text: ERROR
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a211e0be7b4d4642bbd3bea47473385, type: 2}
   m_sharedMaterial: {fileID: 5891337371990780034, guid: 8a211e0be7b4d4642bbd3bea47473385, type: 2}
@@ -1235,7 +1235,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "IGRU JE MOGUCE IGRATI \nSAMO NA MOBITELU !"
+  m_text: "GAME CAN BE PLAYED \r\nONLY ON PHONE!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a211e0be7b4d4642bbd3bea47473385, type: 2}
   m_sharedMaterial: {fileID: 5891337371990780034, guid: 8a211e0be7b4d4642bbd3bea47473385, type: 2}
@@ -2786,7 +2786,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GRESKA
+  m_text: ERROR
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a211e0be7b4d4642bbd3bea47473385, type: 2}
   m_sharedMaterial: {fileID: 5891337371990780034, guid: 8a211e0be7b4d4642bbd3bea47473385, type: 2}

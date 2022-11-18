@@ -19,11 +19,11 @@ public class DeviceManager : MonoBehaviour
         #if UNITY_EDITOR
         if (Application.isEditor && !PlayerPrefs.HasKey("FixSpam"))
         {
-            int option = EditorUtility.DisplayDialogComplex("Što želiš testirati?",
-            "Odaberi koji uređaj želiš testirati.",
-            "Platno",
-            "Ništa",
-            "Mobitel");
+            int option = EditorUtility.DisplayDialogComplex("What do you want to test?",
+            "Choose which device you want to test.",
+            "Canvas",
+            "None",
+            "Mobile");
 
             device = option;
             PhotonNetwork.Disconnect();
