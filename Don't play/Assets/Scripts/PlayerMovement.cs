@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKey(KeyCode.Space))
             {
                 Anim.SetBool("Jumping", isJumping);
-                isJumping = true;
+                isJumping = true; 
             }
 
             if (Input.GetKeyDown(KeyCode.Space) && Jumping > 1)
