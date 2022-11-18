@@ -24,6 +24,7 @@ public class Manager : MonoBehaviour
         StartCoroutine(Time());
     }
 
+    // ========================================================================
     IEnumerator Time()
     {
         while(_timeStart > 0)
@@ -35,7 +36,7 @@ public class Manager : MonoBehaviour
         }
     }
 
-
+    // ========================================================================
     public void QuitGame()
     {
         #if (UNITY_EDITOR)

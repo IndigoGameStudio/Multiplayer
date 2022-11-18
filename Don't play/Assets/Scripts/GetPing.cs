@@ -5,10 +5,7 @@ using Photon.Pun;
 public class GetPing : MonoBehaviour
 {
     TextMeshProUGUI pingText;
-    void Start()
-    {
-        pingText = GetComponent<TextMeshProUGUI>();
-    }
+    void Start() => pingText = GetComponent<TextMeshProUGUI>();
 
     void Update()
     {

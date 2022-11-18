@@ -49,10 +49,14 @@ public class DeviceManager : MonoBehaviour
         #endif
     }
 
+    // ===================================================================
+
     private void OnApplicationQuit()
     {
         PlayerPrefs.DeleteKey("FixSpam");
     }
+
+    // ===================================================================
 
     public void LoadScene()
     {
@@ -71,6 +75,8 @@ public class DeviceManager : MonoBehaviour
         }
     }
 
+    // ===================================================================
+
     public void SetDevice(int value)
     {
         if (value == 0)
@@ -85,8 +91,8 @@ public class DeviceManager : MonoBehaviour
         }
     }
 
-
-    #if UNITY_EDITOR
+    // ===================================================================
+#if UNITY_EDITOR
 
     private void Update()
     {
@@ -107,6 +113,7 @@ public class DeviceManager : MonoBehaviour
         }
     }
 
+    // ===================================================================
 
     void SetGameViewScale(float value)
     {
@@ -116,7 +123,6 @@ public class DeviceManager : MonoBehaviour
 
         var defScaleField = type.GetField("m_defaultScale", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
 
-        //whatever scale you want when you click on play
         float defaultScale = value;
 
         var areaField = type.GetField("m_ZoomArea", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
@@ -126,4 +132,5 @@ public class DeviceManager : MonoBehaviour
         scaleField.SetValue(areaObj, new Vector2(defaultScale, defaultScale));
     }
     #endif
+
 }

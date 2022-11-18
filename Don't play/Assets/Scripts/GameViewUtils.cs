@@ -11,7 +11,6 @@ public static class GameViewUtils
 
     static GameViewUtils()
     {
-        // gameViewSizesInstance  = ScriptableSingleton<GameViewSizes>.instance;
         var sizesType = typeof(Editor).Assembly.GetType("UnityEditor.GameViewSizes");
         var singleType = typeof(ScriptableSingleton<>).MakeGenericType(sizesType);
         var instanceProp = singleType.GetProperty("instance");
@@ -105,23 +104,15 @@ public static class GameViewUtils
 
     public static int FindSize(GameViewSizeGroupType sizeGroupType, string text)
     {
-        // GameViewSizes group = gameViewSizesInstance.GetGroup(sizeGroupType);
-        // string[] texts = group.GetDisplayTexts();
-        // for loop...
-
         var group = GetGroup(sizeGroupType);
         var getDisplayTexts = group.GetType().GetMethod("GetDisplayTexts");
         var displayTexts = getDisplayTexts.Invoke(group, null) as string[];
         for (int i = 0; i < displayTexts.Length; i++)
         {
             string display = displayTexts[i];
-            // the text we get is "Name (W:H)" if the size has a name, or just "W:H" e.g. 16:9
-            // so if we're querying a custom size text we substring to only get the name
-            // You could see the outputs by just logging
-            // Debug.Log(display);
             int pren = display.IndexOf('(');
             if (pren != -1)
-                display = display.Substring(0, pren - 1); // -1 to remove the space that's before the prens. This is very implementation-depdenent
+                display = display.Substring(0, pren - 1);
             if (display == text)
                 return i;
         }
@@ -135,11 +126,6 @@ public static class GameViewUtils
 
     public static int FindSize(GameViewSizeGroupType sizeGroupType, int width, int height)
     {
-        // goal:
-        // GameViewSizes group = gameViewSizesInstance.GetGroup(sizeGroupType);
-        // int sizesCount = group.GetBuiltinCount() + group.GetCustomCount();
-        // iterate through the sizes via group.GetGameViewSize(int index)
-
         var group = GetGroup(sizeGroupType);
         var groupType = group.GetType();
         var getBuiltinCount = groupType.GetMethod("GetBuiltinCount");

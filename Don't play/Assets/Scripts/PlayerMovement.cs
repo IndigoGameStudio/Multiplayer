@@ -62,6 +62,14 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // ========================================================================
+    private void FixedUpdate()
+    {
+        if (isAttacking && controller.m_Grounded)
+        { HorizontalMove = 0; }
+        controller.Move(HorizontalMove * Time.fixedDeltaTime, isCrouching, isJumping);
+    }
+
+    // ========================================================================
 
     private void PlayerAttack()
     {
@@ -100,14 +108,5 @@ public class PlayerMovement : MonoBehaviour
     public void OnCrouching(bool value)
     {
         Anim.SetBool("Crouching", value);
-    }
-
-    // ========================================================================
-
-    private void FixedUpdate()
-    {
-        if (isAttacking && controller.m_Grounded)
-        { HorizontalMove = 0; }
-        controller.Move(HorizontalMove * Time.fixedDeltaTime, isCrouching, isJumping);
     }
 }

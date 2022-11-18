@@ -41,6 +41,7 @@ public class CharacterController2D : MonoBehaviour
 			OnCrouchEvent = new BoolEvent();
 	}
 
+	// ===================================================================
 	private void FixedUpdate()
 	{
 		bool wasGrounded = m_Grounded;
@@ -58,7 +59,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
-
+	// ===================================================================
 	public void Move(float move, bool crouch, bool jumping)
 	{
 
@@ -116,12 +117,14 @@ public class CharacterController2D : MonoBehaviour
 
 	}
 
+	// ===================================================================
 	public void Jump()
     {
 		m_Grounded = false;
 		m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_JumpForce);
 	}
 
+	// ===================================================================
 
 	private void Flip()
 	{
