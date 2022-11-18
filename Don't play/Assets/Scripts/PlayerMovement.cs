@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
         Jumping = JumpTimes;
     }
 
+    // ========================================================================
+
     private void Update()
     {
         if (photonView.IsMine)
@@ -59,6 +61,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // ========================================================================
+
     private void PlayerAttack()
     {
         if (isAttacking || isCrouching)
@@ -68,6 +72,8 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(hideWeapon());
         isAttacking = true;
     }
+
+    // ========================================================================
 
     IEnumerator hideWeapon()
     {
@@ -80,6 +86,8 @@ public class PlayerMovement : MonoBehaviour
         isAttacking = false;
     }
 
+    // ========================================================================
+
     public void OnLanding()
     {
         isJumping = false;
@@ -87,10 +95,14 @@ public class PlayerMovement : MonoBehaviour
         Jumping = JumpTimes;
     }
 
+    // ========================================================================
+
     public void OnCrouching(bool value)
     {
         Anim.SetBool("Crouching", value);
     }
+
+    // ========================================================================
 
     private void FixedUpdate()
     {
