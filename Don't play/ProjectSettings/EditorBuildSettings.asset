@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Waiting room.unity
     guid: 27f30d3ba2ab5b142982b20b640b2cb1
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: e874a21daec78154fbc7f7c4393cd538
   m_configObjects: {}

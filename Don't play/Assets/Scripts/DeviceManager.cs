@@ -16,7 +16,7 @@ public class DeviceManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
         if (Application.isEditor && !PlayerPrefs.HasKey("FixSpam"))
         {
             int option = EditorUtility.DisplayDialogComplex("Što želiš testirati?",
