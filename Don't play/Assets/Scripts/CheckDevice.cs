@@ -8,10 +8,7 @@ public class CheckDevice : MonoBehaviour
     private static extern bool IsMobile();
     #endif
 
-    private void Awake()
-    {
-        instance = this;
-    }
+    private void Awake() => instance = this;
 
     public bool isMobile()
     {

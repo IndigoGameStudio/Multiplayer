@@ -8,8 +8,11 @@ public class Manager : MonoBehaviour
     public PhotonView photonView;
     [SerializeField] TextMeshProUGUI _timeText;
     [SerializeField] int _timeStart = 10;
+    [SerializeField] bool Startgame = false;
     public void StartGame(int addTime)
     {
+        if (!Startgame)
+            return;
 
         if (!photonView.IsMine)
         {

@@ -1,5 +1,4 @@
 ﻿using Photon.Pun;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -16,6 +15,11 @@ public class DeviceManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        ChooseDevice();
+    }
+
+    private void ChooseDevice()
+    {
         #if UNITY_EDITOR
         if (Application.isEditor && !PlayerPrefs.HasKey("FixSpam"))
         {
@@ -29,32 +33,29 @@ public class DeviceManager : MonoBehaviour
             PhotonNetwork.Disconnect();
             DeviceManager.instance.SetDevice(option);
 
-            if (option == 0)
+            switch (option)
             {
-                GameViewUtils.AddAndSelectCustomSize(1920, 1080);
-                SetGameViewScale(0.47f);
+                case 0:
+                    GameViewUtils.AddAndSelectCustomSize(1920, 1080);
+                    SetGameViewScale(0.47f);
+                    break;
+                case 1:
+                    GameViewUtils.AddAndSelectCustomSize(1920, 1080);
+                    SetGameViewScale(0.52f);
+                    break;
+                case 2:
+                    GameViewUtils.SetSize(GameViewUtils.FindSize(GameViewSizeGroupType.Standalone, "Mob"));
+                    SetGameViewScale(1);
+                    break;
             }
-            else if(option == 2)
-            {
-                GameViewUtils.SetSize(GameViewUtils.FindSize(GameViewSizeGroupType.Standalone, "Mob"));
-                SetGameViewScale(1);
-            }
-            else if(option == 1)
-            {
-                GameViewUtils.AddAndSelectCustomSize(1920, 1080);
-                SetGameViewScale(0.52f);
-            }
+
             PlayerPrefs.SetFloat("FixSpam", 1);
         }
         #endif
     }
-
     // ===================================================================
 
-    private void OnApplicationQuit()
-    {
-        PlayerPrefs.DeleteKey("FixSpam");
-    }
+    private void OnApplicationQuit() => PlayerPrefs.DeleteKey("FixSpam");
 
     // ===================================================================
 
