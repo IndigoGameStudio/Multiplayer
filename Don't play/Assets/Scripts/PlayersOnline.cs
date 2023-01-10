@@ -1,12 +1,16 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using Photon.Pun;
+using Photon.Realtime;
+using System.Linq;
 
 public class PlayersOnline : MonoBehaviour
 {
 
     [SerializeField] float UpdateCheck;
     TextMeshProUGUI _textCount;
+
     void Start()
     {
         _textCount = gameObject.GetComponent<TextMeshProUGUI>();
@@ -18,8 +22,12 @@ public class PlayersOnline : MonoBehaviour
     {
         while(true)
         {
-            yield return new WaitForSeconds(UpdateCheck);
-            _textCount.text = string.Format("PLAYERS ONLINE: {0} / 19", PhotonConnection.instance.GetOnlinePlayers().ToString());
+            yield return new WaitForSeconds(3);
+            if(PhotonNetwork.InRoom)
+            {
+                _textCount.text = string.Format("PLAYERS ONLINE: {0} / 20", PhotonNetwork.CurrentRoom.PlayerCount);
+            }
+
         }
     }
     

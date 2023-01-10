@@ -8,10 +8,9 @@ public class Manager : MonoBehaviour
     public PhotonView photonView;
     [SerializeField] TextMeshProUGUI _timeText;
     [SerializeField] int _timeStart = 10;
-    [SerializeField] bool Startgame = false;
     public void StartGame(int addTime)
     {
-        if (!Startgame)
+        if (PhotonNetwork.CurrentRoom.PlayerCount <= 5)
             return;
 
         if (!photonView.IsMine)
@@ -42,12 +41,29 @@ public class Manager : MonoBehaviour
     // ========================================================================
     public void QuitGame()
     {
-        #if (UNITY_EDITOR)
-                UnityEditor.EditorApplication.isPlaying = false;
-        #elif (UNITY_STANDALONE) 
+#if (UNITY_EDITOR)
+        PhotonNetwork.LeaveRoom();
+        if (PhotonNetwork.IsMasterClient) { PhotonNetwork.DestroyAll(); }
+        PhotonNetwork.Disconnect();
+        UnityEditor.EditorApplication.isPlaying = false;
+#elif (UNITY_STANDALONE)
+        PhotonNetwork.LeaveRoom();
+        if (PhotonNetwork.IsMasterClient) { PhotonNetwork.DestroyAll(); }
+        PhotonNetwork.Disconnect();
             Application.Quit();
-        #elif (UNITY_WEBGL)
-            Application.OpenURL("https://antoniogorki.itch.io/test");
-        #endif
+#elif (UNITY_WEBGL)
+        PhotonNetwork.LeaveRoom();
+        if (PhotonNetwork.IsMasterClient) { PhotonNetwork.DestroyAll(); }
+        PhotonNetwork.Disconnect();
+        Application.OpenURL("about:blank");
+#endif
+    }
+
+
+    private void OnApplicationQuit()
+    {
+        PhotonNetwork.LeaveRoom();
+        if (PhotonNetwork.IsMasterClient) { PhotonNetwork.DestroyAll(); }
+        PhotonNetwork.Disconnect();
     }
 }

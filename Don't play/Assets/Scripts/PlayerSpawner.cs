@@ -8,7 +8,7 @@ public class PlayerSpawner : MonoBehaviour
 
     public void Start()
     {
-        if (!PhotonNetwork.IsConnected)
+        if (!PhotonNetwork.IsConnected || PhotonNetwork.IsMasterClient)
             return;
         int randomNumebr = Random.Range(0, spawnPoints.Length);
         Transform spawnPoint = spawnPoints[randomNumebr];

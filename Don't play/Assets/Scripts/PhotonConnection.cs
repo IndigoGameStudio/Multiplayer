@@ -2,6 +2,8 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
+using System.Linq;
+using System.Collections;
 
 public class PhotonConnection : MonoBehaviourPunCallbacks
 {
@@ -12,6 +14,7 @@ public class PhotonConnection : MonoBehaviourPunCallbacks
     [SerializeField] GameObject _goPCGreska;
     [SerializeField] GameObject _goMobileGreska;
 
+ 
     void Start()
     {
         instance = this;
@@ -33,7 +36,7 @@ public class PhotonConnection : MonoBehaviourPunCallbacks
             return;
         }
 
-        if (CheckDevice.instance.isMobile() && PhotonNetwork.CountOfRooms == 0) {
+        if (CheckDevice.instance.isMobile() && PhotonNetwork.CountOfPlayers == 0) {
             _goMobileGreska.SetActive(true);
             PhotonNetwork.Disconnect();
             return;
@@ -50,29 +53,23 @@ public class PhotonConnection : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
-        if (!CheckDevice.instance.isMobile() && PhotonNetwork.CountOfRooms == 0)
-        {
-            PhotonNetwork.CreateRoom("Room");
-        }
-
-        if(CheckDevice.instance.isMobile())
-        {
-            PhotonNetwork.JoinRoom("Room");
-        }
-
-        if(Application.isEditor)
-        {
-            PhotonNetwork.JoinRoom("Room");
-        }
-
-        Debug.Log("JOINED TO LOBBY !");
+        StartCoroutine(JoinRoom());
     }
 
-    // ========================================================================
+    IEnumerator JoinRoom()
+    {
+        yield return new WaitForSeconds(3);
+        PhotonNetwork.JoinOrCreateRoom("Room", null, null);
+    }
 
     public override void OnJoinedRoom()
     {
+        txt.text = "JOINED TO ROOM ! (" + PhotonNetwork.CurrentRoom.Name +")";
         Debug.Log(string.Format("Uspjesno si se povezao/la u sobu pod imenom '{0}'", PhotonNetwork.CurrentRoom.Name));
+    }
+
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
         manager.StartGame(5);
     }
 
@@ -87,8 +84,7 @@ public class PhotonConnection : MonoBehaviourPunCallbacks
 
     public int GetOnlinePlayers()
     {
-        int playersNumber = PhotonNetwork.CountOfPlayers - 1;
-        return Mathf.Clamp(playersNumber, 0, 19);
+        return Mathf.Clamp(PhotonNetwork.CurrentRoom.PlayerCount, 0, PhotonNetwork.CurrentRoom.MaxPlayers);
     }
 
 }

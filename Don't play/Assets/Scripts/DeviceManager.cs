@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeviceManager : MonoBehaviour
 {
@@ -15,8 +16,12 @@ public class DeviceManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        ChooseDevice();
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+            ChooseDevice();
+        else
+            LoadScene();
     }
+
 
     private void ChooseDevice()
     {
