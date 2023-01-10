@@ -1659,6 +1659,7 @@ MonoBehaviour:
   photonView: {fileID: 1640208024}
   _timeText: {fileID: 711048296}
   _timeStart: 10
+  _minimumPlayers: 2
 --- !u!1 &679850460
 GameObject:
   m_ObjectHideFlags: 0

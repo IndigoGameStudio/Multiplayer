@@ -7,20 +7,26 @@ public class Manager : MonoBehaviour
 {
     public PhotonView photonView;
     [SerializeField] TextMeshProUGUI _timeText;
+    [Space]
+    [Header("Settings")]
     [SerializeField] int _timeStart = 10;
+    [SerializeField] int _minimumPlayers;
+    int currentTime;
+
     public void StartGame(int addTime)
     {
-        if (PhotonNetwork.CurrentRoom.PlayerCount <= 5)
+        currentTime = _timeStart;
+        if (PhotonNetwork.CurrentRoom.PlayerCount < _minimumPlayers)
             return;
 
         if (!photonView.IsMine)
         {
-            _timeStart += addTime;
+            currentTime += addTime;
         }
         _timeText.text = "STARTING IN: 10";
         if (Application.isEditor)
-        { 
-            _timeStart = 3;
+        {
+            currentTime = 3;
             _timeText.text = "STARTING IN: 3";
         }
         StartCoroutine(Time());
@@ -29,12 +35,21 @@ public class Manager : MonoBehaviour
     // ========================================================================
     IEnumerator Time()
     {
-        while(_timeStart > 0)
+        while(currentTime > 0)
         {
             yield return new WaitForSeconds(1);
-            _timeStart -= 1;
-            _timeText.text = string.Format("STARTING IN: {0} ", _timeStart.ToString());
-            if(_timeStart == 0 && PhotonNetwork.IsMasterClient) { PhotonNetwork.LoadLevel(1); }
+            if (PhotonNetwork.CurrentRoom.PlayerCount < _minimumPlayers)
+            {
+                currentTime = _timeStart;
+                _timeText.text = string.Empty;
+                break;
+            }
+            else
+            {
+                currentTime -= 1;
+                _timeText.text = string.Format("STARTING IN: {0} ", currentTime.ToString());
+                if (currentTime == 0 && PhotonNetwork.IsMasterClient) { PhotonNetwork.LoadLevel(1); }
+            }
         }
     }
 

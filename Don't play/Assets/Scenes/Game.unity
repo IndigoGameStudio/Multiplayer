@@ -12847,7 +12847,7 @@ GameObject:
   - component: {fileID: 926537345}
   - component: {fileID: 926537346}
   m_Layer: 0
-  m_Name: Game Manager
+  m_Name: Server Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12877,13 +12877,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 926537344}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b790afe44b3f4a74ab8edeec45a9bacb, type: 3}
+  m_Script: {fileID: 11500000, guid: 0256d08cc6afca640a2b44ed65b1ae41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  photonView: {fileID: 0}
-  _timeText: {fileID: 0}
-  _timeStart: 10
-  Startgame: 0
 --- !u!1 &932843148
 GameObject:
   m_ObjectHideFlags: 0
